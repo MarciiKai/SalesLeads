@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".ui.adduser.AddUserFragment">
 
     <EditText
         android:layout_marginTop="30dp"
         android:id="@+id/edtFirstName"
         android:backgroundTint="@color/white"
-        android:elevation="8dp"
+        android:elevation="2dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
@@ -26,7 +26,7 @@
         android:ems="10"
         android:backgroundTint="@color/white"
         android:layout_marginTop="10dp"
-        android:elevation="8dp"
+        android:elevation="2dp"
         android:inputType="text"
         android:text="Name" />
 
@@ -36,7 +36,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:layout_marginTop="10dp"
-        android:elevation="8dp"
+        android:elevation="2dp"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -45,7 +45,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:layout_marginTop="10dp"
-        android:elevation="8dp"
+        android:elevation="2dp"
         android:inputType="phone" />
 
     <Button
