@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.salesleads.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_switchBoardFragment"
+            app:destination="@id/switchBoardFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homePageActivity2"
+            app:destination="@id/homePageActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.salesleads.fragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInFragment_to_switchBoardFragment2"
+            app:destination="@id/switchBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.salesleads.fragments.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpTo="@id/signUpFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signUpFragment_to_switchBoardFragment3"
+            app:destination="@id/switchBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/switchBoardFragment"
+        android:name="com.example.salesleads.fragments.SwitchBoardFragment"
+        android:label="fragment_switch_board"
+        tools:layout="@layout/fragment_switch_board" >
+        <action
+            android:id="@+id/action_switchBoardFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+        <action
+            android:id="@+id/action_switchBoardFragment_to_companyFragment"
+            app:destination="@id/companyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.example.salesleads.fragments.CustomerFragment"
+        android:label="fragment_customer"
+        tools:layout="@layout/fragment_customer" >
+        <action
+            android:id="@+id/action_customerFragment_to_homePageActivity"
+            app:destination="@id/homePageActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/homePageActivity"
+        android:name="com.example.salesleads.HomePageActivity"
+        android:label="HomePageActivity" />
+    <fragment
+        android:id="@+id/companyFragment"
+        android:name="com.example.salesleads.fragments.CompanyFragment"
+        android:label="fragment_company"
+        tools:layout="@layout/fragment_company" >
+        <action
+            android:id="@+id/action_companyFragment_to_companyPageActivity"
+            app:destination="@id/companyPageActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/companyPageActivity"
+        android:name="com.example.salesleads.CompanyPageActivity"
+        android:label="app_bar_company_page"
+        tools:layout="@layout/app_bar_company_page" />
+</navigation>

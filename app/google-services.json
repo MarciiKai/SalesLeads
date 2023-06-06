@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1082641833957",
+    "project_id": "salesleads-99040",
+    "storage_bucket": "salesleads-99040.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082641833957:android:88dd0a545a7bd19d80d90c",
+        "android_client_info": {
+          "package_name": "com.example.salesleads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082641833957-tp3s36vkghg3oe4aukripf9e0fjcd59k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjr2aySK6vwrhx78UsQQNYy6s5KGTMzxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082641833957-tp3s36vkghg3oe4aukripf9e0fjcd59k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

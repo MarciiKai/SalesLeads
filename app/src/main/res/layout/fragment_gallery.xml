@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.gallery.GalleryFragment">
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/edtFirstName"
+        android:backgroundTint="@color/white"
+        android:elevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/edtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="10dp"
+        android:elevation="8dp"
+        android:inputType="text"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/edtEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:elevation="8dp"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:elevation="8dp"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/Submitbtn"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="60dp"
+        android:backgroundTint="#97AF8F"
+        android:layout_marginHorizontal="60dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+</LinearLayout>
