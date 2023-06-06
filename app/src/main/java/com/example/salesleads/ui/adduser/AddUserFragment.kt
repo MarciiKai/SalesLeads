@@ -38,7 +38,7 @@ class AddUserFragment : Fragment(){
                 "phone" to phone
             )
             db.collection("salesperson")
-                .add(salesperson)
+                .add(salesperson!!)
                 .addOnSuccessListener {
                     // Data uploaded successfully
                 }

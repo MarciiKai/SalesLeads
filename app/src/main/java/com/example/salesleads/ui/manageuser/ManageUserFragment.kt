@@ -11,57 +11,58 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.salesleads.R
 import com.example.salesleads.classes.UserData
 import com.example.salesleads.classes.MyAdapter
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
-
-import com.google.firebase.database.ValueEventListener
-
-
-class ManageUserFragment : Fragment(){
-    private lateinit var dbref : DatabaseReference
+class ManageUserFragment : Fragment() {
+    private lateinit var dbRef: DatabaseReference
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<UserData>
+    private lateinit var myAdapter: MyAdapter
+    private lateinit var valueEventListener: ValueEventListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_manageuser, container, false)
-        userRecyclerView = view.findViewById(R.id.recycler_view)
+        userRecyclerView = view.findViewById(R.id.userList)
         userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         userRecyclerView.setHasFixedSize(true)
 
-        userArrayList = arrayListOf<UserData>()
+        userArrayList = arrayListOf()
+        myAdapter = MyAdapter(userArrayList)
+        userRecyclerView.adapter = myAdapter
 
-        getUserData()
-        return view
-    }
-    private fun getUserData(){
-        dbref = FirebaseDatabase.getInstance().getReference("salesperson")
-        dbref.addValueEventListener(object : ValueEventListener{
+        dbRef = FirebaseDatabase.getInstance().getReference("salesperson")
+        valueEventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (userSnapshot in snapshot.children) {
-                        val user = userSnapshot.getValue(UserData::class.java)
-                        userArrayList.add(user!!)
+                userArrayList.clear()
+                for (userSnapshot in snapshot.children) {
+                    val user = userSnapshot.getValue(UserData::class.java)
+                    user?.let {
+                        userArrayList.add(it)
                     }
-                    userRecyclerView.adapter = MyAdapter(userArrayList)
-
                 }
+                myAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                // Handle the error here
             }
+        }
 
-        })
+        return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        dbRef.addValueEventListener(valueEventListener)
+    }
 
-
+    override fun onStop() {
+        super.onStop()
+        dbRef.removeEventListener(valueEventListener)
+    }
 }
 
 

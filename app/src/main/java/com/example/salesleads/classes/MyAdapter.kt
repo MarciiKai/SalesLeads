@@ -1,11 +1,13 @@
 package com.example.salesleads.classes
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.salesleads.R
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.ArrayList
 
 class MyAdapter(private val userList: ArrayList<UserData> ) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
@@ -27,12 +29,13 @@ class MyAdapter(private val userList: ArrayList<UserData> ) : RecyclerView.Adapt
         holder.lastname.text = currentItem.lastname
         holder.email.text = currentItem.email
 
+
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val firstname : TextView =  itemView.findViewById(R.id.txtfirst)
-        val lastname : TextView = itemView.findViewById(R.id.txtlast)
-        val email : TextView = itemView.findViewById(R.id.email)
+        val firstname : TextView =  itemView.findViewById(R.id.txtfnam)
+        val lastname : TextView = itemView.findViewById(R.id.txtnam)
+        val email : TextView = itemView.findViewById(R.id.edemail)
 
     }
 

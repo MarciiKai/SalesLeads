@@ -58,7 +58,7 @@ class CustomerFragment : Fragment() {
                 )
 
                 db.collection("user")
-                    .add(user)
+                    .add(user!!)
                     .addOnSuccessListener {
                         navController.navigate(R.id.action_customerFragment_to_homePageActivity)
                     }

@@ -8,16 +8,56 @@
     tools:context=".ui.account.AccountFragment">
 
     <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:elevation="300dp"
-        android:backgroundTint="#97AF8F"
-        android:layout_height="200dp" >
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_marginTop="30dp"
-            android:layout_width="200dp"
-            android:layout_height="160dp"
-            android:src="@drawable/baseline_manage_accounts_24" />
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="6dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/img1"
+                android:src="@mipmap/ic_launcher"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#00000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtfnam"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/img1"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="25sp"
+                android:text="First Name"
+                android:layout_marginStart="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtfnam"
+                android:id="@+id/txtnam"
+                android:layout_toRightOf="@+id/img1"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="25sp"
+                android:text="Last Name"
+                android:layout_marginStart="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -33,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="Settings"
+            android:fontFamily="@font/inter_regular"
             android:textSize="30dp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
@@ -49,6 +90,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/inter_regular"
             android:drawableLeft="@drawable/baseline_person_24"
             android:text="Profile"
             android:textSize="25sp" />
@@ -63,6 +105,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/inter_regular"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
@@ -83,6 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_regular"
             android:drawableLeft="@drawable/baseline_dark_mode_24"
             android:text="Night Mode"
             android:textSize="25sp" />
@@ -99,6 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/inter_regular"
             android:drawablePadding="10dp"
             android:drawableLeft="@drawable/baseline_whatshot_24"
             android:text="About Us"
@@ -118,6 +163,7 @@
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
             android:onClick="signOut"
+            android:fontFamily="@font/inter_regular"
             android:drawableLeft="@drawable/baseline_logout_24"
             android:text="Log Out"
             android:textSize="25sp" />

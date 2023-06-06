@@ -1,80 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
     android:layout_margin="10dp">
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginVertical="6dp"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="First Name:"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/txtfirst"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kai:"
-                    android:layout_marginStart="8dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/black" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Last Name:"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/txtlast"
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kai:"
-                android:textColor="@color/black" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email:"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_height="wrap_content"
-                android:text="Kai@gmail.com:"
-                android:textColor="@color/black" />
-        </LinearLayout>
 
-    </LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/img1"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="0dp"
+            app:civ_border_color="#00000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/txtfnam"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img1"
+            android:textSize="25sp"
+            android:text="First Name"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold">
 
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtfnam"
+            android:id="@+id/txtnam"
+            android:layout_toRightOf="@+id/img1"
+            android:textSize="25sp"
+            android:text="Last Name"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/edemail"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtnam"
+            android:layout_toRightOf="@+id/img1"
+            android:textSize="25sp"
+            android:text="Email"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

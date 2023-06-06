@@ -46,7 +46,7 @@ class CompanyFragment : Fragment() {
                 "address" to address
             )
             db.collection("company")
-                .add(company)
+                .add(company!!)
                 .addOnSuccessListener {
                     navController.navigate(R.id.action_companyFragment_to_companyPageActivity)
                 }
