@@ -24,28 +24,28 @@ class AddUserFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.Submitbtn.setOnClickListener {
-            val db = FirebaseFirestore.getInstance()
-            val firstname = binding.edtFirstName.text.toString()
-            val lastname = binding.edtLastName.text.toString()
-            val phone = binding.editPhone.text.toString()
-            val email = binding.edtEmailAddress.text.toString()
-
-            val salesperson = hashMapOf(
-                "firstname" to firstname,
-                "lastname" to lastname,
-                "email" to email,
-                "phone" to phone
-            )
-            db.collection("salesperson")
-                .add(salesperson!!)
-                .addOnSuccessListener {
-                    // Data uploaded successfully
-                }
-                .addOnFailureListener {
-                    // Error occurred while uploading data
-                }
-        }
+//        binding.Submitbtn.setOnClickListener {
+//            val db = FirebaseFirestore.getInstance()
+//            val firstname = binding.edtFirstName.text.toString()
+//            val lastname = binding.edtLastName.text.toString()
+//            val phone = binding.editPhone.text.toString()
+//            val email = binding.edtEmailAddress.text.toString()
+//
+//            val salesperson = hashMapOf(
+//                "firstname" to firstname,
+//                "lastname" to lastname,
+//                "email" to email,
+//                "phone" to phone
+//            )
+//            db.collection("salesperson")
+//                .add(salesperson!!)
+//                .addOnSuccessListener {
+//                    // Data uploaded successfully
+//                }
+//                .addOnFailureListener {
+//                    // Error occurred while uploading data
+//                }
+//        }
     }
 
     override fun onDestroyView() {
