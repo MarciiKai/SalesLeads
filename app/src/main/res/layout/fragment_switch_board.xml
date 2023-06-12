@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e9f5db"
     tools:context=".fragments.SwitchBoardFragment">
 
     <ImageView
@@ -13,7 +12,7 @@
         android:layout_width="400dp"
         android:layout_height="434dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/login"
+        android:src="@drawable/security"
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="94dp" />
 
@@ -23,11 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="30dp"
         android:fontFamily="@font/inter_extra_bold"
         android:text="Continue as:"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="#143D98"
         android:textSize="40sp"
         />
 
@@ -37,9 +36,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
-        android:backgroundTint="#97AF8F"
+        android:backgroundTint="#143D98"
         android:elevation="40dp"
         android:textSize="20sp"
+        android:fontFamily="@font/inter_regular"
         android:shadowColor="@color/black"
         android:layout_marginRight="30dp"
         android:text="Customer" />
@@ -53,8 +53,9 @@
         android:elevation="40dp"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#97AF8F"
+        android:backgroundTint="#143D98"
         android:shadowColor="@color/black"
+        android:fontFamily="@font/inter_regular"
         android:layout_marginBottom="20dp"
         android:text="Company" />
 

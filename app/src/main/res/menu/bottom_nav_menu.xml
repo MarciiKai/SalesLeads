@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:fontFamily="@font/inter_regular">
 
     <item
         android:id="@+id/navigation_home"
-        android:iconTint="#97AF8F"
+        android:iconTint="#143D98"
+        app:fontFamily="@font/inter_regular"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:iconTint="#97AF8F"
+        android:iconTint="#143D98"
         android:icon="@drawable/baseline_manage_accounts_24"
         android:title="@string/title_dashboard" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:iconTint="#97AF8F"
+        android:iconTint="#143D98"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
 

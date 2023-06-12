@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e9f5db"
     tools:context=".fragments.SignInFragment">
 
 
@@ -16,7 +15,7 @@
         android:layout_marginRight="160dp"
         android:fontFamily="@font/inter_extra_bold"
         android:text="Sign In"
-        android:textColor="#97AF8F"
+        android:textColor="#143D98"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +23,7 @@
         android:id="@+id/imageView2"
         android:layout_width="300dp"
         android:layout_height="250dp"
-        android:src="@drawable/login"
+        android:src="@drawable/lrafiki"
         tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="94dp"
         android:layout_marginTop="50dp"
@@ -138,6 +137,7 @@
         android:id="@+id/textViewSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#143D98"
         android:fontFamily="@font/inter_regular"
         android:text=" Sign Up"
         app:layout_constraintHorizontal_bias="0.5"

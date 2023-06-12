@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#97AF8F"
+    android:background="#143D98"
     android:orientation="vertical"
     tools:context=".fragments.SplashFragment">
 
@@ -12,12 +12,12 @@
         android:id="@+id/txtSplash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:fontFamily="@font/inter_extra_bold"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/inter_regular"
         android:gravity="center_horizontal"
         android:text="SalesLeads"
         android:textColor="#ffff"
-        android:textSize="60sp"
-        android:textStyle="italic" />
+        android:textStyle="bold"
+        android:textSize="40sp" />
 
 </LinearLayout>

@@ -11,6 +11,8 @@ import androidx.navigation.Navigation
 import com.example.salesleads.R
 import com.example.salesleads.databinding.FragmentSignInBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 class SignInFragment : Fragment() {
 
@@ -23,7 +25,6 @@ class SignInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,8 +34,15 @@ class SignInFragment : Fragment() {
 
         init(view)
 
+        val currentUser: FirebaseUser? = mAuth.currentUser
+        if (currentUser != null) {
+            // User is already authenticated, navigate to the main screen
+            navigateToMainScreen(currentUser)
+            return
+        }
+
         binding.textViewSignUp.setOnClickListener {
-            navController.navigate(R.id.action_signInFragment_to_signUpFragment)
+            navController.navigate(R.id.action_signInFragment_to_switchBoardFragment2)
         }
 
         binding.nextBtn.setOnClickListener {
@@ -42,7 +50,6 @@ class SignInFragment : Fragment() {
             val pass = binding.passEt.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty())
-
                 loginUser(email, pass)
             else
                 Toast.makeText(context, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
@@ -50,12 +57,38 @@ class SignInFragment : Fragment() {
     }
 
     private fun loginUser(email: String, pass: String) {
-        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-            if (it.isSuccessful)
-                navController.navigate(R.id.action_signInFragment_to_switchBoardFragment2)
-            else
-                Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
+        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val currentUser = mAuth.currentUser
+                if (currentUser != null) {
+                    navigateToMainScreen(currentUser)
+                } else {
+                    Toast.makeText(context, "Failed to retrieve user information", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
+    private fun navigateToMainScreen(currentUser: FirebaseUser) {
+        val uid = currentUser.uid
+        val usersRef = FirebaseDatabase.getInstance().getReference("users")
+        usersRef.child(uid).get().addOnSuccessListener { snapshot ->
+
+            when (snapshot.child("userType").value as? String) {
+                "customer" -> {
+                    navController.navigate(R.id.action_signInFragment_to_homePageActivity)
+                }
+                "company" -> {
+                    navController.navigate(R.id.action_signInFragment_to_companyPageActivity)
+                }
+                else -> {
+                    Toast.makeText(context, "Invalid user type", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }.addOnFailureListener {
+            Toast.makeText(context, "Failed to retrieve user information", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -63,5 +96,4 @@ class SignInFragment : Fragment() {
         navController = Navigation.findNavController(view)
         mAuth = FirebaseAuth.getInstance()
     }
-
 }

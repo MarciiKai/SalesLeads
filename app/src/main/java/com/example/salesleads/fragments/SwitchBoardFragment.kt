@@ -30,7 +30,7 @@ class SwitchBoardFragment : Fragment() {
 
         init(view)
         binding.btnCustomer.setOnClickListener {
-            navController.navigate(R.id.action_switchBoardFragment_to_customerFragment)
+            navController.navigate(R.id.action_switchBoardFragment_to_signUpFragment)
         }
         binding.btnCompany.setOnClickListener {
             navController.navigate(R.id.action_switchBoardFragment_to_companyFragment)

@@ -36,6 +36,12 @@
         <action
             android:id="@+id/action_signInFragment_to_switchBoardFragment2"
             app:destination="@id/switchBoardFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_homePageActivity"
+            app:destination="@id/homePageActivity" />
+        <action
+            android:id="@+id/action_signInFragment_to_companyPageActivity"
+            app:destination="@id/companyPageActivity" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -47,9 +53,6 @@
             app:destination="@id/signInFragment"
             app:popUpTo="@id/signUpFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_signUpFragment_to_switchBoardFragment3"
-            app:destination="@id/switchBoardFragment" />
     </fragment>
     <fragment
         android:id="@+id/switchBoardFragment"
@@ -57,20 +60,11 @@
         android:label="fragment_switch_board"
         tools:layout="@layout/fragment_switch_board" >
         <action
-            android:id="@+id/action_switchBoardFragment_to_customerFragment"
-            app:destination="@id/customerFragment" />
-        <action
             android:id="@+id/action_switchBoardFragment_to_companyFragment"
             app:destination="@id/companyFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/customerFragment"
-        android:name="com.example.salesleads.fragments.CustomerFragment"
-        android:label="fragment_customer"
-        tools:layout="@layout/fragment_customer" >
         <action
-            android:id="@+id/action_customerFragment_to_homePageActivity"
-            app:destination="@id/homePageActivity" />
+            android:id="@+id/action_switchBoardFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <activity
         android:id="@+id/homePageActivity"
