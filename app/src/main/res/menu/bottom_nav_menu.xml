@@ -11,15 +11,19 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_search"
         android:iconTint="#143D98"
-        android:icon="@drawable/baseline_manage_accounts_24"
-        android:title="@string/title_dashboard" />
+        android:icon="@drawable/baseline_search_24"
+        android:title="search" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_settings"
         android:iconTint="#143D98"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
-
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Settings" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:iconTint="#143D98"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profile" />
 </menu>

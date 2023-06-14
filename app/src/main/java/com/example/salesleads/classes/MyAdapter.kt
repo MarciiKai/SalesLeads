@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.salesleads.R
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.ArrayList
@@ -28,7 +29,9 @@ class MyAdapter(private val userList: ArrayList<UserData> ) : RecyclerView.Adapt
         holder.firstname.text = currentItem.firstname
         holder.lastname.text = currentItem.lastname
         holder.email.text = currentItem.email
-
+        Glide.with(holder.itemView.context)
+            .load(currentItem.imageURL)
+            .into(holder.profileImage)
 
     }
 
@@ -36,6 +39,8 @@ class MyAdapter(private val userList: ArrayList<UserData> ) : RecyclerView.Adapt
         val firstname : TextView =  itemView.findViewById(R.id.txtfnam)
         val lastname : TextView = itemView.findViewById(R.id.txtnam)
         val email : TextView = itemView.findViewById(R.id.edemail)
+        val profileImage: CircleImageView = itemView.findViewById(R.id.img1)
+
 
     }
 

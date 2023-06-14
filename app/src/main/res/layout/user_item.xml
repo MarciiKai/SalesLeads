@@ -25,6 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/txtfnam"
+            android:fontFamily="@font/inter_regular"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/img1"
             android:textSize="25sp"
@@ -40,6 +41,7 @@
             android:id="@+id/txtnam"
             android:layout_toRightOf="@+id/img1"
             android:textSize="25sp"
+            android:fontFamily="@font/inter_regular"
             android:text="Last Name"
             android:layout_marginStart="10dp"
             android:textStyle="bold">
@@ -48,6 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/edemail"
+            android:fontFamily="@font/inter_regular"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtnam"
             android:layout_toRightOf="@+id/img1"
@@ -57,6 +60,18 @@
             android:textStyle="bold">
 
         </TextView>
+        <Button
+            android:id="@+id/button2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginRight="20dp"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="#000000"
+            android:backgroundTint="@color/fui_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile" />
 
     </RelativeLayout>
 
