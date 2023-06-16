@@ -11,19 +11,16 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.salesleads.R
 import com.example.salesleads.classes.UserData
 import com.example.salesleads.databinding.FragmentAdduserBinding
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 
 class AddUserFragment : Fragment() {
 
     private var _binding: FragmentAdduserBinding? = null
-    private lateinit var navController: NavController
-    private var imageURL: String? = null
     private var uri: Uri? = null
 
     private val binding get() = _binding!!
@@ -50,7 +47,6 @@ class AddUserFragment : Fragment() {
                 binding.uploadImage.setImageURI(uri)
             }
         }
-        // Inside the onViewCreated() method
 
         binding.uploadImage.setOnClickListener {
             val photoPicker = Intent(Intent.ACTION_PICK)
@@ -62,61 +58,43 @@ class AddUserFragment : Fragment() {
             val firstname = binding.edtFirstName.text.toString()
             val lastname = binding.edtLastName.text.toString()
             val email = binding.edtEmailAddress.text.toString()
+            val imageURL = uri?.toString()
 
-            if (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty()) {
-                if (uri != null) {
-                    val storageReference = FirebaseStorage.getInstance().reference.child("salesperson")
-                        .child(uri!!.lastPathSegment!!)
-                    storageReference.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
-                        val uriTask = taskSnapshot.storage.downloadUrl
-                        while (!uriTask.isComplete);
-                        val urlImage = uriTask.result
-                        imageURL = urlImage.toString()
-
-                        // Load image with Glide if URI is not null
-                        if (uri != null) {
-                            Glide.with(requireContext())
-                                .load(uri)
-                                .into(binding.uploadImage)
-                        }
-
-                        uploadData(firstname, lastname, email)
-                    }.addOnFailureListener {
-                        // Handle the failure
-                    }
-                } else {
-                    uploadData(firstname, lastname, email)
-                }
+            if (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty() && imageURL != null) {
+                uploadDataWithImage(firstname, lastname, email, imageURL)
             }
         }
-
-
     }
 
-    private fun uploadData(firstname: String, lastname: String, email: String) {
-        val dataClass = UserData(
-            firstname,
-            lastname,
-            email,
-            imageURL
-        )
+    private fun uploadDataWithImage(firstname: String, lastname: String, email: String, imageURL: String) {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("salesperson")
+        val userKey = databaseReference.push().key
 
-        FirebaseDatabase.getInstance().getReference("salesperson")
-            .push() // Create a new child node with a unique key
-            .setValue(dataClass)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Data uploaded successfully with imageURL
-                    binding.uploadImage.setImageDrawable(null)
-                    binding.edtFirstName.setText("")
-                    binding.edtLastName.setText("")
-                    binding.edtEmailAddress.setText("")
-                    navController.navigate(R.id.action_nav_gallery_to_nav_slideshow)
-                } else {
-                    // Error uploading data
-                    // Handle the error accordingly
+        if (userKey != null) {
+            val dataClass = UserData(
+                userId = userKey,
+                firstname = firstname,
+                lastname = lastname,
+                email = email,
+                imageURL = imageURL
+            )
+
+            databaseReference.child(userKey).setValue(dataClass)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Data uploaded successfully
+                        binding.uploadImage.setImageDrawable(null)
+                        binding.edtFirstName.setText("")
+                        binding.edtLastName.setText("")
+                        binding.edtEmailAddress.setText("")
+                    } else {
+                        // Error uploading data
+                        // Handle the error accordingly
+                    }
                 }
-            }
+        } else {
+            // Error generating user key
+        }
     }
 
     override fun onDestroyView() {

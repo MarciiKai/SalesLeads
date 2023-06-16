@@ -13,14 +13,6 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginVertical="6dp"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="80dp"
@@ -31,11 +23,12 @@
             app:civ_border_color="#00000000"/>
         <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/txtfnam"
+            android:id="@+id/txtCompanyName"
+            android:fontFamily="@font/inter_regular"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/img1"
-            android:textSize="25sp"
-            android:text="First Name"
+            android:textSize="20sp"
+            android:text="Company Name"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
             tools:ignore="HardcodedText">
@@ -44,30 +37,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtfnam"
-            android:id="@+id/txtnam"
+            android:layout_below="@+id/txtCompanyName"
+            android:id="@+id/txtCompanyEmail"
             android:layout_toEndOf="@+id/img1"
-            android:textSize="25sp"
-            android:text="Last Name"
-            android:layout_marginStart="10dp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText">
-
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/edemail"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtnam"
-            android:layout_toEndOf="@+id/img1"
-            android:textSize="25sp"
-            android:text="Email"
+            android:textSize="20sp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Company Email"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
             tools:ignore="HardcodedText">
 
         </TextView>
 
-    </RelativeLayout>
 
 </LinearLayout>
