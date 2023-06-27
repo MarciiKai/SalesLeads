@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edf2fb"
     tools:context=".ui.home.HomeFragment">
 
+<TextView
+    android:layout_width="match_parent"
+    android:text="Leads"
+    android:fontFamily="@font/inter_regular"
+    android:layout_marginTop="30dp"
+    android:textSize="50sp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="20dp"
+    android:textColor="@color/purple_700"
+    android:layout_height="wrap_content">
 
+</TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/salesperson_list"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        tools:layout_editor_absoluteX="10dp"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/salesperson_list"
+        tools:ignore="MissingConstraints" />
 
 </LinearLayout>

@@ -79,6 +79,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
+    //dialog
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
+
     // FirebaseUI for Firebase Realtime Database
         implementation 'com.firebaseui:firebase-ui-database:8.0.2'
 

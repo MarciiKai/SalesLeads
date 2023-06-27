@@ -58,15 +58,16 @@ class AddUserFragment : Fragment() {
             val firstname = binding.edtFirstName.text.toString()
             val lastname = binding.edtLastName.text.toString()
             val email = binding.edtEmailAddress.text.toString()
+            val compName = binding.edtUserComp.text.toString()
             val imageURL = uri?.toString()
 
             if (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty() && imageURL != null) {
-                uploadDataWithImage(firstname, lastname, email, imageURL)
+                uploadDataWithImage(firstname, lastname, email, imageURL,compName)
             }
         }
     }
 
-    private fun uploadDataWithImage(firstname: String, lastname: String, email: String, imageURL: String) {
+    private fun uploadDataWithImage(firstname: String, lastname: String, email: String, imageURL: String, compName: String) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("salesperson")
         val userKey = databaseReference.push().key
 
@@ -76,6 +77,7 @@ class AddUserFragment : Fragment() {
                 firstname = firstname,
                 lastname = lastname,
                 email = email,
+                compName = compName,
                 imageURL = imageURL
             )
 
@@ -87,6 +89,7 @@ class AddUserFragment : Fragment() {
                         binding.edtFirstName.setText("")
                         binding.edtLastName.setText("")
                         binding.edtEmailAddress.setText("")
+                        binding.edtUserComp.setText("")
                     } else {
                         // Error uploading data
                         // Handle the error accordingly

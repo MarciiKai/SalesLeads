@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,14 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SalesLeads"
         tools:targetApi="33">
+
+
         <activity
             android:name=".CompanyPageActivity"
             android:exported="false"
             android:label="@string/title_activity_company_page"
             android:theme="@style/Theme.SalesLeads.NoActionBar" />
-        <activity
-            android:name=".activities.Profile"
-            android:exported="false" />
+
                 <activity
             android:name=".activities.AboutUs"
             android:exported="false" />

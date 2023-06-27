@@ -43,7 +43,7 @@ class CompanyPageActivity : AppCompatActivity() {
 
          auth = FirebaseAuth.getInstance()
         uid = auth.currentUser?.uid.toString()
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+        databaseReference = FirebaseDatabase.getInstance().getReference("users")
         if (uid.isNotEmpty()){
             getUserData()
         }

@@ -1,6 +1,7 @@
 package com.example.salesleads.ui.manageuser
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,7 @@ class ManageUserFragment : Fragment() {
 
         dbRef = FirebaseDatabase.getInstance().getReference("salesperson")
         valueEventListener = object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 userArrayList.clear()
                 for (userSnapshot in snapshot.children) {

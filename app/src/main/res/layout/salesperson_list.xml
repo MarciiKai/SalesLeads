@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
     <RelativeLayout
@@ -49,49 +49,31 @@
         </TextView>
         <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/edemail"
+            android:id="@+id/edtUserComp"
             android:fontFamily="@font/inter_regular"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtnam"
             android:layout_toRightOf="@+id/img1"
             android:textSize="20sp"
-            android:text="Email"
+            android:text="Company"
             android:layout_marginStart="10dp"
             android:textStyle="bold">
 
         </TextView>
-
-    <LinearLayout
-        android:id="@+id/mail"
-        android:layout_marginTop="110dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <Button
-            android:id="@+id/btnEdit"
+            android:id="@+id/btnRate"
             android:textSize="20sp"
             android:fontFamily="@font/inter_regular"
             android:textColor="@color/white"
             android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="230dp"
             android:background="@drawable/rounded"
             android:backgroundTint="@color/fui_transparent"
-            android:layout_width="170dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Edit " />
-        <Button
-            android:id="@+id/btnDelete"
-            android:textSize="20sp"
-            android:fontFamily="@font/inter_regular"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/rounded"
-            android:backgroundTint="@color/fui_transparent"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:text="Delete " />
+            android:text="Rate " />
 
-    </LinearLayout>
 
     </RelativeLayout>
 

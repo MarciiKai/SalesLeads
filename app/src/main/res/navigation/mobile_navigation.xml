@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.salesleads.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_timelineFragment"
+            app:destination="@id/timelineFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -28,5 +32,10 @@
         android:name="com.example.salesleads.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/timelineFragment"
+        android:name="com.example.salesleads.fragments.TimelineFragment"
+        android:label="fragment_timeline"
+        tools:layout="@layout/fragment_timeline" />
 
 </navigation>

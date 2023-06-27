@@ -17,7 +17,6 @@ class EditUserFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_edit_user, container, false)
 
-  return view
 
     }
 }
