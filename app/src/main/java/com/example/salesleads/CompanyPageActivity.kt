@@ -57,7 +57,7 @@ class CompanyPageActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_manageuser, R.id.nav_adduser
+                R.id.nav_home, R.id.nav_manageuser, R.id.nav_adduser, R.id.nav_salesreport
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

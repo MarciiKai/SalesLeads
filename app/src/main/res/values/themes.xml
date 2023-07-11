@@ -22,4 +22,13 @@
     <style name="Theme.SalesLeads.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SalesLeads.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Other style attributes -->
+        <item name="textAppearanceButton">@style/TextAppearance.MyButton</item>
+    </style>
+
+    <style name="TextAppearance.MyButton" parent="TextAppearance.MaterialComponents.Button">
+        <!-- Customize your button text appearance -->
+    </style>
+
 </resources>

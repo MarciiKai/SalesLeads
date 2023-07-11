@@ -7,6 +7,7 @@
     android:background="#edf2fb"
     tools:context=".fragments.TimelineFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/timelineList"
         android:layout_width="409dp"
@@ -15,7 +16,5 @@
         tools:layout_editor_absoluteY="1dp"
         tools:listitem="@layout/timeline_item"
         tools:ignore="MissingConstraints" />
-
-
 
 </LinearLayout>

@@ -17,4 +17,26 @@
             android:icon="@drawable/baseline_manage_accounts_24"
             android:title="@string/menu_slideshow" />
     </group>
+    <group>
+        <item
+            android:id="@+id/nav_salesreport"
+            android:icon="@drawable/report"
+            android:title="Sales Report">
+
+        </item>
+        <item
+            android:id="@+id/nav_salereport"
+            android:icon="@drawable/report"
+            android:title="Sales Report">
+
+        </item>
+        <item
+            android:id="@+id/nav_salsreport"
+            android:icon="@drawable/report"
+            android:title="Sales Report">
+
+        </item>
+    </group>
+
+
 </menu>

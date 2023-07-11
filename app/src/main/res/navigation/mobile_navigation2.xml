@@ -31,4 +31,9 @@
         android:name="com.example.salesleads.ui.EditUserFragment"
         android:label="fragment_edit_user"
         tools:layout="@layout/fragment_edit_user" />
+    <fragment
+        android:id="@+id/nav_salesreport"
+        android:name="com.example.salesleads.sales.SalesReportFragment"
+        android:label="SalesReport"
+        tools:layout="@layout/fragment_sales_report" />
 </navigation>
