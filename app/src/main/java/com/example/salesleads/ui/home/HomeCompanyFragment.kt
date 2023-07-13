@@ -1,60 +1,67 @@
 package com.example.salesleads.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.salesleads.R
+import com.example.salesleads.classes.AnalysisAdapter
+import lecho.lib.hellocharts.model.Line
+import lecho.lib.hellocharts.model.LineChartData
+import lecho.lib.hellocharts.model.PointValue
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeCompanyFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeCompanyFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_company, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_home_company, container, false)
+
+        val recyclerView: RecyclerView = rootView.findViewById(R.id.analysisRecycleView)
+
+        val data: List<Any> = lineChartData()
+
+        val adapter = AnalysisAdapter(data)
+
+        recyclerView.adapter = adapter
+
+        return rootView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeCompanyFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeCompanyFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun lineChartData(): List<Any> {
+        val dataList: MutableList<Any> = mutableListOf()
+
+        // Generate data for the line chart
+        val numberOfLines = 4
+        val numberOfPoints = 12
+        val randomNumbersTab = Array(numberOfLines) {
+            FloatArray(numberOfPoints)
+        }
+
+        // Generate random values for the line chart data
+        for (i in 0 until numberOfLines) {
+            for (j in 0 until numberOfPoints) {
+                randomNumbersTab[i][j] = (Math.random() * 100f).toFloat()
             }
+        }
+
+        // Create LineChartData objects for each line
+        for (i in 0 until numberOfLines) {
+            val values: MutableList<PointValue> = ArrayList()
+            for (j in 0 until numberOfPoints) {
+                values.add(PointValue(j.toFloat(), randomNumbersTab[i][j]))
+            }
+            val line = Line(values)
+            val lines: MutableList<Line> = ArrayList()
+            lines.add(line)
+            val lineChartData = LineChartData(lines)
+            dataList.add(lineChartData)
+        }
+
+        return dataList
     }
+
 }

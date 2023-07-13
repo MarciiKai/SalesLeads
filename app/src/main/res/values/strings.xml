@@ -35,6 +35,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Add Salesperson</string>
-    <string name="menu_slideshow">Manage Users</string>
+    <string name="menu_gallery">Add Leads</string>
+    <string name="menu_slideshow">Manage Leads</string>
 </resources>

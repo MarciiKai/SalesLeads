@@ -11,9 +11,6 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.example.salesleads.R
 import com.example.salesleads.classes.UserData
 import com.example.salesleads.databinding.FragmentAdduserBinding
 import com.google.firebase.database.FirebaseDatabase

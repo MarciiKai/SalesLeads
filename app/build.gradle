@@ -3,10 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
-//    apply plugin: 'com.android.application'
 
 }
-
 android {
     compileSdk 33
 
@@ -93,6 +91,8 @@ dependencies {
 
         // FirebaseUI for Cloud Storage
         implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
-    }
-
+}
+dependencies{
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+}
 
