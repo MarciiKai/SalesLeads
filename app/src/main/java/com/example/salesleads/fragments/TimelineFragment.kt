@@ -13,39 +13,44 @@ import com.example.salesleads.R
 import com.example.salesleads.classes.UserData
 
 class TimelineFragment : Fragment() {
-
-    private lateinit var userRecyclerView: RecyclerView
-    private lateinit var userArrayList: ArrayList<UserData>
-    private lateinit var myAdapter: TimelineAdapter
+    private lateinit var timelineRecyclerView: RecyclerView
+    private lateinit var timelineAdapter: TimelineAdapter
+    private lateinit var timelineList: List<UserData> // Replace this with your actual data list
 
     @SuppressLint("MissingInflatedId")
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_timeline, container, false)
 
-        val userRecyclerView: RecyclerView = view.findViewById(R.id.salesperson_list)
-        userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // Initialize your data list (timelineList) with the necessary data
+        timelineList = getTimelineList()
 
-        val userArrayList = ArrayList<UserData>()
-        userArrayList.add(UserData("Talia", "Sasha", 4.5f, "Sample description"))
-        userArrayList.add(UserData("John", "Doe", 3.8f, "Another description"))
+        timelineRecyclerView = view.findViewById(R.id.timelineList)
+        timelineRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        timelineRecyclerView.setHasFixedSize(true)
 
-        val myAdapter = TimelineAdapter(requireContext(), userArrayList) { selectedUser ->
-            // Handle the click event here
-            val fragmentManager = parentFragmentManager
-            val timelineFragment = TimelineFragment.newInstance(selectedUser.firstname, selectedUser.rating)
-            fragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, timelineFragment)
-                .addToBackStack(null)
-                .commit()
-        }
-
-        userRecyclerView.adapter = myAdapter
+        // Make sure timelineList is initialized before passing it to the adapter
+        timelineAdapter = TimelineAdapter(requireContext(), timelineList, null)
+        timelineRecyclerView.adapter = timelineAdapter
 
         return view
     }
 
+    private fun getTimelineList(): List<UserData> {
+        val userDataList = mutableListOf<UserData>()
+
+        // Create UserData objects and add them to the list
+        val userData1 = UserData(firstname = String())
+        userDataList.add(userData1)
+
+        val userData2 = UserData(lastname = String())
+        userDataList.add(userData2)
+
+        // Add more UserData objects as needed
+
+        return userDataList
+    }
 
 }
+
+
+

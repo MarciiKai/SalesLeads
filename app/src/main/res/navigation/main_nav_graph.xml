@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_splashFragment_to_homePageActivity2"
             app:destination="@id/homePageActivity" />
+        <action
+            android:id="@+id/action_splashFragment_to_companyPageActivity"
+            app:destination="@id/companyPageActivity" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"

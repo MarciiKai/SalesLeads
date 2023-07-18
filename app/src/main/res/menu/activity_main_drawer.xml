@@ -3,39 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:menuCategory="secondary">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_adduser"
-            android:icon="@drawable/baseline_person_add_alt_1_24"
+            android:icon="@drawable/leads"
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_manageuser"
-            android:icon="@drawable/baseline_manage_accounts_24"
+            android:icon="@drawable/manage"
             android:title="@string/menu_slideshow" />
     </group>
-    <group>
+    <group android:checkableBehavior="single"
+        android:menuCategory="system">
         <item
             android:id="@+id/nav_salesreport"
-            android:icon="@drawable/report"
+            android:icon="@drawable/analysis"
             android:title="Sales Report">
 
         </item>
-        <item
-            android:id="@+id/nav_salereport"
-            android:icon="@drawable/report"
-            android:title="Sales Report">
 
-        </item>
-        <item
-            android:id="@+id/nav_salsreport"
-            android:icon="@drawable/report"
-            android:title="Sales Report">
-
-        </item>
     </group>
 
 

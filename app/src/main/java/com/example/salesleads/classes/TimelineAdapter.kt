@@ -11,7 +11,7 @@ import com.example.salesleads.classes.UserData
 class TimelineAdapter(
     private val context: Context,
     private val items: List<UserData>,
-    private val onItemClick: (UserData) -> Unit
+    private val onItemClick: ((UserData) -> Unit)?
 ) : RecyclerView.Adapter<TimelineAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,11 +21,11 @@ class TimelineAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.bind(item)
+        holder?.bind(item)
 
         // Set click listener for the "Rate" button
         holder.btnRate.setOnClickListener {
-            onItemClick.invoke(item)
+            onItemClick?.invoke(item)
         }
     }
 
@@ -34,15 +34,13 @@ class TimelineAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val txtFirstName: TextView = itemView.findViewById(R.id.txtfnam)
-        private val txtLastName: TextView = itemView.findViewById(R.id.txtnam)
-        private val txtCompany: TextView = itemView.findViewById(R.id.edtUserComp)
-        val btnRate: Button = itemView.findViewById(R.id.btnRate)
+        private val txtFirstName: TextView = itemView.findViewById(R.id.frstNane)
+        private val txtLastName: TextView = itemView.findViewById(R.id.lstName)
+        val btnRate: Button = itemView.findViewById(R.id.ratingBar)
 
         fun bind(item: UserData) {
             txtFirstName.text = item.firstname
             txtLastName.text = item.lastname
-            txtCompany.text = item.compName
         }
     }
 }
