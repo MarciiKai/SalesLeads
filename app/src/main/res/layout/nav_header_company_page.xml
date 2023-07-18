@@ -14,40 +14,59 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:id="@+id/img1"
-            android:src="@mipmap/ic_launcher"
-            app:civ_border_width="0dp"
-            app:civ_border_color="#00000000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/txtCompanyName"
-            android:fontFamily="@font/inter_regular"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/img1"
-            android:textSize="20sp"
-            android:text="Company Name"
-            android:layout_marginStart="10dp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
 
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtCompanyName"
-            android:id="@+id/txtCompanyEmail"
-            android:layout_toEndOf="@+id/img1"
-            android:textSize="20sp"
-            android:fontFamily="@font/inter_regular"
-            android:text="Company Email"
-            android:layout_marginStart="10dp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText">
 
-        </TextView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage_profileFrag"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_profile"
+                    app:civ_border_color="@color/black"
+                    app:tint="@color/mainText"
+                    />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profileName_profileFrag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Profile Name"
+                            android:textColor="@color/mainText"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/profileEmail_profileFrag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Profile Email"
+                            android:textColor="@color/textAd"
+                            android:textSize="14sp" />
+
+                </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/uploadImage_profileFrag"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_bg"
+            android:text="Upload Image"
+            android:fontFamily="@font/inter_regular"/>
 
 </LinearLayout>
+
+

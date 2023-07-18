@@ -42,7 +42,7 @@ class UserAdapter(private val userList: ArrayList<UserData>,
             .into(holder.profileImage)
 
         holder.btnRate.setOnClickListener {
-            navController.navigate(R.id.action_navigation_home_to_timelineFragment)
+            navController.navigate(R.id.action_navigation_search_to_timelineFragment)
 
         }
     }

@@ -2,6 +2,7 @@ package com.example.salesleads
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -27,6 +28,7 @@ class CompanyPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCompanyPageBinding
     private lateinit var companyNameTextView: TextView
     private lateinit var emailTextView: TextView
+    private lateinit var image: ImageView
     private lateinit var auth:FirebaseAuth
     private lateinit var user:String
     private lateinit var databaseReference: DatabaseReference
@@ -69,8 +71,10 @@ class CompanyPageActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 user = snapshot.getValue(CompanyData::class.java).toString()
                 val navHeaderView = navView.getHeaderView(0)
-                companyNameTextView = navHeaderView.findViewById(R.id.txtCompanyName)
-                emailTextView = navHeaderView.findViewById(R.id.txtCompanyEmail)
+
+                companyNameTextView = navHeaderView.findViewById(R.id.profileName_profileFrag)
+                emailTextView = navHeaderView.findViewById(R.id.profileEmail_profileFrag)
+                image = navHeaderView.findViewById(R.id.profileImage_profileFrag)
 
             }
 

@@ -5,10 +5,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.salesleads.databinding.ActivityHomePageBinding
-
+import com.example.salesleads.ui.home.HomeFragment
 
 
 class HomePageActivity : AppCompatActivity() {
@@ -18,10 +17,9 @@ class HomePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        setSupportActionBar(binding.toolbar) // Set the ActionBar using setSupportActionBar()
 
         val navView: BottomNavigationView = binding.navView
 

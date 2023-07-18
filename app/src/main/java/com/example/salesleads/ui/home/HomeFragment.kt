@@ -1,85 +1,189 @@
 package com.example.salesleads.ui.home
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.salesleads.R
-import com.example.salesleads.classes.UserAdapter
-import com.example.salesleads.classes.UserData
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.example.salesleads.classes.CoverProductAdapter
+import com.example.salesleads.classes.Product
+import com.example.salesleads.classes.ProductAdapter
+import com.example.salesleads.classes.SaleProductAdapter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
 
 class HomeFragment : Fragment() {
 
-    private lateinit var dbRef: DatabaseReference
-    private lateinit var userRecyclerView: RecyclerView
-    private lateinit var userArrayList: ArrayList<UserData>
-    private lateinit var userAdapter: UserAdapter
-    private lateinit var valueEventListener: ValueEventListener
-    private lateinit var navController: NavController
+//    NewProducts.json
+
+    lateinit var coverRecView: RecyclerView
+    lateinit var newRecView: RecyclerView
+    lateinit var saleRecView: RecyclerView
+    lateinit var coverProduct:ArrayList<Product>
+    lateinit var newProduct:ArrayList<Product>
+    lateinit var saleProduct:ArrayList<Product>
+
+    lateinit var coverProductAdapter: CoverProductAdapter
+    lateinit var newProductAdapter: ProductAdapter
+    lateinit var saleProductAdapter: SaleProductAdapter
+
+    lateinit var animationView: LottieAnimationView
+
+    lateinit var newLayout: LinearLayout
+    lateinit var saleLayout: LinearLayout
+
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        userRecyclerView = view.findViewById(R.id.salesperson_list)
-        userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        userRecyclerView.setHasFixedSize(true)
 
-        navController = findNavController()
+        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
 
-        userArrayList = arrayListOf()
-        userAdapter = UserAdapter(userArrayList, navController)
+
+        coverProduct = arrayListOf()
+        newProduct = arrayListOf()
+        saleProduct = arrayListOf()
 
 
-        userRecyclerView.adapter = userAdapter
+        coverRecView = view.findViewById(R.id.coverRecView)
+        newRecView = view.findViewById(R.id.newRecView)
+        saleRecView = view.findViewById(R.id.saleRecView)
+        newLayout = view.findViewById(R.id.newLayout)
+        saleLayout = view.findViewById(R.id.saleLayout)
+        animationView = view.findViewById(R.id.animationView)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("salesperson")
-        valueEventListener = object : ValueEventListener {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onDataChange(snapshot: DataSnapshot) {
-                userArrayList.clear()
-                for (userSnapshot in snapshot.children) {
-                    val user = userSnapshot.getValue(UserData::class.java)
-                    user?.let {
-                        userArrayList.add(it)
-                    }
-                }
-                userAdapter.notifyDataSetChanged()
-            }
-            override fun onCancelled(error: DatabaseError) {
-                // Handle the error here
-            }
-        }
+
+
+        val visualSearchBtn_homePage: ImageView = view.findViewById(R.id.visualSearchBtn_homePage)
+
+        hideLayout()
+
+        setCoverData()
+        setNewProductData()
+
+        coverRecView.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        coverRecView.setHasFixedSize(true)
+        coverProductAdapter = CoverProductAdapter(activity as Context, coverProduct )
+        coverRecView.adapter = coverProductAdapter
+
+
+
+        newRecView.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        newRecView.setHasFixedSize(true)
+        newProductAdapter = ProductAdapter(newProduct, activity as Context)
+        newRecView.adapter = newProductAdapter
+
+
+        saleRecView.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        saleRecView.setHasFixedSize(true)
+        saleProductAdapter = SaleProductAdapter(saleProduct, activity as Context)
+        saleRecView.adapter = saleProductAdapter
+
+
+
+//        visualSearchBtn_homePage.setOnClickListener {
+//            startActivity(Intent(context, VisualSearchActivity::class.java))
+//        }
+
+
+
+
+
+        showLayout()
+
+
 
         return view
+    }
+
+
+
+    private fun hideLayout(){
+        animationView.playAnimation()
+        animationView.loop(true)
+        coverRecView.visibility = View.GONE
+        newLayout.visibility = View.GONE
+        saleLayout.visibility = View.GONE
+        animationView.visibility = View.VISIBLE
+    }
+    private fun showLayout(){
+        animationView.pauseAnimation()
+        animationView.visibility = View.GONE
+        coverRecView.visibility = View.VISIBLE
+        newLayout.visibility = View.VISIBLE
+        saleLayout.visibility = View.VISIBLE
+    }
+
+    fun getJsonData(context: Context, fileName: String): String? {
+
+        val jsonString: String
+        try {
+            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
+
+    private fun setCoverData() {
+
+        val jsonFileString = context?.let {
+
+            getJsonData(it, "CoverProducts.json")
+        }
+        val gson = Gson()
+
+        val listCoverType = object : TypeToken<List<Product>>() {}.type
+
+        var coverD: List<Product> = gson.fromJson(jsonFileString, listCoverType)
+
+        coverD.forEachIndexed { idx, person ->
+
+            coverProduct.add(person)
+            saleProduct.add(person)
+
+        }
+    }
+
+    private fun setNewProductData() {
+
+        val jsonFileString = context?.let {
+
+            getJsonData(it, "NewProducts.json")
+        }
+        val gson = Gson()
+
+        val listCoverType = object : TypeToken<List<Product>>() {}.type
+
+        var coverD: List<Product> = gson.fromJson(jsonFileString, listCoverType)
+
+        coverD.forEachIndexed { idx, person ->
+
+
+            newProduct.add(person)
+
+
+        }
+
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        dbRef.addValueEventListener(valueEventListener)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        dbRef.removeEventListener(valueEventListener)
-    }
 }

@@ -9,24 +9,23 @@
         android:id="@+id/navigation_home"
         android:name="com.example.salesleads.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.salesleads.ui.leads.LeadsFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_leads" >
         <action
-            android:id="@+id/action_navigation_home_to_timelineFragment"
+            android:id="@+id/action_navigation_search_to_timelineFragment"
             app:destination="@id/timelineFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.example.salesleads.ui.search.SearchFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" >
-    </fragment>
-
-    <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.salesleads.ui.settings.SettingsFragment"
+        android:name="com.example.salesleads.ui.favourite.FavouriteFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.salesleads.ui.profile.ProfileFragment"

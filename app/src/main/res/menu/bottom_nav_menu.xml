@@ -7,23 +7,23 @@
         android:id="@+id/navigation_home"
         android:iconTint="#143D98"
         app:fontFamily="@font/inter_regular"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_home"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_search"
         android:iconTint="#143D98"
-        android:icon="@drawable/baseline_search_24"
-        android:title="search" />
+        android:icon="@drawable/ic_profile"
+        android:title="Leads" />
 
     <item
         android:id="@+id/navigation_settings"
         android:iconTint="#143D98"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="Settings" />
+        android:icon="@drawable/ic_fav"
+        android:title="Favourites" />
     <item
         android:id="@+id/navigation_profile"
         android:iconTint="#143D98"
-        android:icon="@drawable/baseline_person_24"
+        android:icon="@drawable/baseline_settings_24"
         android:title="Profile" />
 </menu>
