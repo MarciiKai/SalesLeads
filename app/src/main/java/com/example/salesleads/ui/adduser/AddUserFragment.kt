@@ -1,16 +1,21 @@
 package com.example.salesleads.ui.adduser
 
-import android.annotation.SuppressLint
-import android.app.Activity.RESULT_OK
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.salesleads.Manifest
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.provider.MediaStore
 import com.example.salesleads.classes.UserData
 import com.example.salesleads.databinding.FragmentAdduserBinding
 import com.google.firebase.database.FirebaseDatabase
@@ -18,9 +23,12 @@ import com.google.firebase.database.FirebaseDatabase
 class AddUserFragment : Fragment() {
 
     private var _binding: FragmentAdduserBinding? = null
-    private var uri: Uri? = null
-
     private val binding get() = _binding!!
+    private var selectedImageUri: Uri? = null
+
+    private val PERMISSION_REQUEST_CODE = 1001
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,24 +39,23 @@ class AddUserFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activityResultLauncher = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) { result: ActivityResult? ->
-            if (result?.resultCode == RESULT_OK) {
-                val data = result.data
-                uri = data?.data
-                binding.uploadImage.setImageURI(uri)
+        val pickImageLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
+                if (result?.resultCode == Activity.RESULT_OK) {
+                    val data = result.data
+                    selectedImageUri = data?.data
+                    binding.uploadImage.setImageURI(selectedImageUri)
+                }
             }
-        }
 
         binding.uploadImage.setOnClickListener {
-            val photoPicker = Intent(Intent.ACTION_PICK)
+            val photoPicker = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            photoPicker.addCategory(Intent.CATEGORY_OPENABLE)
             photoPicker.type = "image/*"
-            activityResultLauncher.launch(photoPicker)
+            pickImageLauncher.launch(photoPicker)
         }
 
         binding.Submitbtn.setOnClickListener {
@@ -56,15 +63,14 @@ class AddUserFragment : Fragment() {
             val lastname = binding.edtLastName.text.toString()
             val email = binding.edtEmailAddress.text.toString()
             val compName = binding.edtUserComp.text.toString()
-            val imageURL = uri?.toString()
 
-            if (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty() && imageURL != null) {
-                uploadDataWithImage(firstname, lastname, email, imageURL,compName)
+            if (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty() && selectedImageUri != null) {
+                uploadDataWithImage(firstname, lastname, email, compName)
             }
         }
     }
 
-    private fun uploadDataWithImage(firstname: String, lastname: String, email: String, imageURL: String, compName: String) {
+    private fun uploadDataWithImage(firstname: String, lastname: String, email: String, compName: String) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("salesperson")
         val userKey = databaseReference.push().key
 
@@ -75,7 +81,7 @@ class AddUserFragment : Fragment() {
                 lastname = lastname,
                 email = email,
                 compName = compName,
-                imageURL = imageURL
+                imageURL = selectedImageUri.toString()
             )
 
             databaseReference.child(userKey).setValue(dataClass)

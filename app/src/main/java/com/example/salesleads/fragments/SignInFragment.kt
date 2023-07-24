@@ -19,6 +19,8 @@ class SignInFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: FragmentSignInBinding
+    private lateinit var currentUser: FirebaseUser
+
 
 
     override fun onCreateView(
@@ -34,12 +36,12 @@ class SignInFragment : Fragment() {
 
         init(view)
 
-        val currentUser: FirebaseUser? = mAuth.currentUser
+        var currentUser: FirebaseUser? = mAuth.currentUser
         if (currentUser != null) {
             // User is already authenticated, navigate to the main screen
             navigateToMainScreen(currentUser)
-            return
         }
+
 
         binding.textViewSignUp.setOnClickListener {
             navController.navigate(R.id.action_signInFragment_to_switchBoardFragment2)
@@ -95,5 +97,6 @@ class SignInFragment : Fragment() {
     private fun init(view: View) {
         navController = Navigation.findNavController(view)
         mAuth = FirebaseAuth.getInstance()
+
     }
 }

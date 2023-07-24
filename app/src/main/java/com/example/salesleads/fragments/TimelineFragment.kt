@@ -1,6 +1,6 @@
 package com.example.salesleads.fragments
 
-import TimelineAdapter
+import com.example.salesleads.classes.TimelineAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater

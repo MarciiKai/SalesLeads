@@ -14,11 +14,11 @@
 
     <color name="primary">#143D98</color>
     <color name="background">#F9F9F9</color>
-    <color name="backgroundAd">#143D98</color>
+    <color name="backgroundAd">#FFFFFF</color>
     <color name="error">#143D98</color>
     <color name="success">#2AA952</color>
     <color name="sale">#143D98</color>
-    <color name="mainText">#222222</color>
+    <color name="mainText">#FF000000</color>
     <color name="textAd">#9B9B9B</color>
 
 </resources>

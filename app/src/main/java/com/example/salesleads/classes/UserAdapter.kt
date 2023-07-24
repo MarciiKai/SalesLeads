@@ -37,6 +37,8 @@ class UserAdapter(private val userList: ArrayList<UserData>,
         holder.firstname.text = currentItem.firstname
         holder.lastname.text = currentItem.lastname
         holder.compName.text = currentItem.compName
+
+
         Glide.with(holder.itemView.context)
             .load(currentItem.imageURL)
             .into(holder.profileImage)

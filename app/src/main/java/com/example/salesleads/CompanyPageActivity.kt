@@ -69,7 +69,7 @@ class CompanyPageActivity : AppCompatActivity() {
     private fun getUserData() {
         databaseReference.child(uid).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                user = snapshot.getValue(CompanyData::class.java).toString()
+//                user = snapshot.getValue(CompanyData::class.java).toString()
                 val navHeaderView = navView.getHeaderView(0)
 
                 companyNameTextView = navHeaderView.findViewById(R.id.profileName_profileFrag)
