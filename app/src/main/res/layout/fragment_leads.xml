@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#edf2fb"
+    android:background="#ebebeb"
     android:layout_height="match_parent"
     tools:context=".ui.leads.LeadsFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">

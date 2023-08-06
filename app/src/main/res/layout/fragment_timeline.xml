@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edf2fb"
+    android:background="#ebebeb"
     tools:context=".fragments.TimelineFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -16,5 +16,7 @@
         tools:layout_editor_absoluteY="1dp"
         tools:listitem="@layout/timeline_item"
         tools:ignore="MissingConstraints" />
+
+
 
 </LinearLayout>

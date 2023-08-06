@@ -147,7 +147,7 @@ class HomeFragment : Fragment() {
 
         val jsonFileString = context?.let {
 
-            getJsonData(it, "CoverProducts.json")
+            getJsonData(it, "CoverLeads.json")
         }
         val gson = Gson()
 

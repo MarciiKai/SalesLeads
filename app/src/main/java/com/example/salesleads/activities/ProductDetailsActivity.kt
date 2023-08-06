@@ -2,21 +2,16 @@ package com.example.salesleads.activities
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.salesleads.Card.ProductEntity
 import com.example.salesleads.R
 import com.example.salesleads.classes.Product
 import com.example.salesleads.classes.ProductAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
@@ -25,7 +20,8 @@ class ProductDetailsActivity : AppCompatActivity() {
 
     var productIndex: Int = -1
     lateinit var ProductFrom: String
-//    private lateinit var cartViewModel: CartViewModel
+
+    //    private lateinit var cartViewModel: CartViewModel
     private val TAG = "TAG"
     lateinit var productImage_ProductDetailsPage: ImageView
     lateinit var backIv_ProfileFrag: ImageView
@@ -37,8 +33,7 @@ class ProductDetailsActivity : AppCompatActivity() {
     lateinit var productRating_singleProduct: RatingBar
 
 
-
-//    lateinit var RecomRecView_ProductDetailsPage: RecyclerView
+    //    lateinit var RecomRecView_ProductDetailsPage: RecyclerView
     lateinit var newProductAdapter: ProductAdapter
     lateinit var newProduct: ArrayList<Product>
 
@@ -71,41 +66,33 @@ class ProductDetailsActivity : AppCompatActivity() {
 //        RecomRecView_ProductDetailsPage = findViewById(R.id.RecomRecView_ProductDetailsPage)
         backIv_ProfileFrag = findViewById(R.id.backIv_ProfileFrag)
 //        val addToCart_ProductDetailsPage: Button = findViewById(R.id.addToCart_ProductDetailsPage)
-        val shippingAddress_productDetailsPage:LinearLayout = findViewById(R.id.shippingAddress_productDetailsPage)
-        val cardNumberProduct_Details:TextView = findViewById(R.id.cardNumberProduct_Details)
-
-//        cardNumber = GetDefCard()
-//
-//        if(cardNumber == "" || cardNumber == null){
-//            cardNumberProduct_Details.text = "You Have No Cards"
-//        }
-//        else{
-//            cardNumberProduct_Details.text = cardXXGen(cardNumber)
-//        }
-//
-//
-//        shippingAddress_productDetailsPage.setOnClickListener {
-//            startActivity(Intent(this, PaymentMethodActivity::class.java))
-//        }
-
+        val shippingAddress_productDetailsPage: LinearLayout =
+            findViewById(R.id.shippingAddress_productDetailsPage)
+        val cardNumberProduct_Details: TextView = findViewById(R.id.cardNumberProduct_Details)
 
         newProduct = arrayListOf()
         setProductData()
         setRecData()
-//
-//        RecomRecView_ProductDetailsPage.layoutManager = LinearLayoutManager(
-//            this,
-//            LinearLayoutManager.HORIZONTAL, false
-//        )
-//        RecomRecView_ProductDetailsPage.setHasFixedSize(true)
-//        newProductAdapter = ProductAdapter(newProduct, this)
-//        RecomRecView_ProductDetailsPage.adapter = newProductAdapter
 
-//        backIv_ProfileFrag.setOnClickListener {
-//            onBackPressed()
-//        }
+        val contactLead_leadDetails: Button = findViewById(R.id.contactLead_LeadDetailsPage)
 
+        contactLead_leadDetails.setOnClickListener {
+            val phoneNumber = "0707605491" // Replace with the desired phone number
 
+            // Form the lookup URI using the phone number
+            val contactUri = Uri.withAppendedPath(
+                Uri.parse("content://com.android.contacts"),
+                "phone_lookup/${Uri.encode(phoneNumber)}"
+            )
+
+            // Create an intent to view the contact details
+            val intent = Intent(Intent.ACTION_VIEW, contactUri)
+
+            // Set the intent type to contacts
+            intent.type = "vnd.android.cursor.dir/contact"
+
+            startActivity(intent)
+        }
 
     }
 
@@ -129,7 +116,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         var fileJson: String = ""
 
         if (ProductFrom.equals("Cover")) {
-            fileJson = "CoverProducts.json"
+            fileJson = "CoverLeads.json"
         }
         if (ProductFrom.equals("New")) {
             fileJson = "NewProducts.json"
@@ -157,7 +144,8 @@ class ProductDetailsActivity : AppCompatActivity() {
         productBrand_ProductDetailsPage.text = coverD[productIndex].productBrand
         productDes_ProductDetailsPage.text = coverD[productIndex].productDes
         productRating_singleProduct.rating = coverD[productIndex].productRating
-        RatingProductDetails.text = coverD[productIndex].productRating.toString() + " Rating on this Product."
+        RatingProductDetails.text =
+            coverD[productIndex].productRating.toString() + " Rating on this Lead."
 
         pName = coverD[productIndex].productName
         pPrice = coverD[productIndex].productPrice.toInt()
@@ -165,6 +153,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         pImage = coverD[productIndex].productImage
 
     }
+
 
     private fun setRecData() {
 
@@ -175,7 +164,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             fileJson = "NewProducts.json"
         }
         if (ProductFrom.equals("New")) {
-            fileJson = "CoverProducts.json"
+            fileJson = "CoverLeads.json"
         }
 
 
@@ -200,5 +189,6 @@ class ProductDetailsActivity : AppCompatActivity() {
 
 
     }
-
 }
+
+

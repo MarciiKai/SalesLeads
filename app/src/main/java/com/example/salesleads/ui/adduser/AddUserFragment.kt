@@ -13,7 +13,6 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.salesleads.Manifest
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.provider.MediaStore
 import com.example.salesleads.classes.UserData

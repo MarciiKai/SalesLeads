@@ -97,6 +97,5 @@ class SignInFragment : Fragment() {
     private fun init(view: View) {
         navController = Navigation.findNavController(view)
         mAuth = FirebaseAuth.getInstance()
-
     }
 }

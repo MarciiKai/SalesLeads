@@ -1,32 +1,32 @@
 [
   {
-  "productName": "Smartphones",
+  "productName": "Bianca Noela",
   "productId": "1",
-  "productPrice": "800",
+  "productPrice": "80",
   "productDes": "High-tech mobile devices with various features and functionalities,\n\n such as cameras,\n large screens,\n and powerful processors.\n\n",
   "productRating": 4.7,
   "productDisCount": "12%",
   "productHave": true,
   "productBrand": "Tommy Hilfiger",
-  "productImage": "https://img.freepik.com/free-photo/internationals-people-standing-cafe-with-shopping-bags_1157-32570.jpg?size=626&ext.jpg",
+  "productImage": "https://as1.ftcdn.net/v2/jpg/06/06/39/02/1000_F_606390203_wZO8T8T0h8EqDWPWSPcoHdD2CdEKWQ64.jpg",
   "productCategory": "Clothing",
   "productNote": "Tommy Hilfiger"
   },
   {
-  "productName": "Vacuum Cleaners",
+  "productName": "John Fin",
   "productId": "2",
-  "productPrice": "2700",
+  "productPrice": "70",
   "productDes": "Powerful vacuum cleaners \n\n with advanced filtration \n cleaning attachments.\n\n",
   "productRating": 3.2,
   "productDisCount": "",
   "productHave": false,
   "productBrand": "RARE Vibes",
-  "productImage": "https://img.freepik.com/premium-photo/work-colleagues-doing-handshake-partnership-agreeing-startup-collaboration-teamwork-company-presentation-working-with-research-data-documents-laptop-office_482257-50118.jpg?size=626&ext.jpg",
+  "productImage": "https://as1.ftcdn.net/v2/jpg/04/68/60/22/1000_F_468602272_93BF51jlZKHV6MKI2rLP54JCiUgLV4rw.jpg",
   "productCategory": "Clothing",
   "productNote": "RARE Vibes"
   },
   {
-    "productName": "Cateye Sunglasses",
+    "productName": "Collince Ben ",
     "productId": "3",
     "productPrice": "23",
     "productDes": "Lens colour: Black\nLens feature: UV Protected Lens\nFrame material: Plastic and Metal\nFrame style: Full Rim\nBest suited for: Oval face shape\nComes in a DressBerry cover\nWarranty: 6 months\nWarranty provided by brand/manufacturer\n\nMaterial & Care\nPlastic\nRemove dust and grime by gently wiping the lens with a cloth\n\n",
@@ -34,12 +34,12 @@
     "productDisCount": "10%",
     "productHave": true,
     "productBrand": "Cateye Glass",
-    "productImage": "https://img.freepik.com/free-photo/cheerful-business-people-using-desktop-computer_74855-4002.jpg?size=626&ext.jpg",
+    "productImage": "https://as2.ftcdn.net/v2/jpg/05/45/89/41/1000_F_545894172_fLINXPGJs19SgFvA3P6vTvXN59iScZJ0.jpg",
     "productCategory": "Clothing",
     "productNote": "Cateye Glass"
   },
   {
-    "productName": "Cookwares",
+    "productName": "Shila Maya",
     "productId": "4",
     "productPrice": "31",
     "productDes": "A comprehensive set of high-quality cookware for a well-equipped kitchen.\n\n",
@@ -47,7 +47,7 @@
     "productDisCount": "6%",
     "productHave": true,
     "productBrand": "ROYAL SON",
-    "productImage": "https://img.freepik.com/free-photo/front-view-smiley-man-doing-presentation-during-meeting_23-2148817045.jpg?size=626&ext.jpg",
+    "productImage": "https://as1.ftcdn.net/v2/jpg/05/27/28/64/1000_F_527286401_8ZuVLoeakb4fnhNkTRiHJ6bDSPU5193X.jpg",
     "productCategory": "Clothing",
     "productNote": "ROYAL SON"
   }

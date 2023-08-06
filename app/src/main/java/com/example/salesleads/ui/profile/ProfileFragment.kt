@@ -81,8 +81,8 @@ class ProfileFragment : Fragment() {
         linearLayout3 = view.findViewById(R.id.linearLayout3)
         linearLayout4 = view.findViewById(R.id.linearLayout4)
         val shippingAddressCard_ProfilePage = view.findViewById<CardView>(R.id.shippingAddressCard_ProfilePage)
-        val paymentMethod_ProfilePage = view.findViewById<CardView>(R.id.paymentMethod_ProfilePage)
-        val cardsNumber_profileFrag: TextView = view.findViewById(R.id.cardsNumber_profileFrag)
+//        val paymentMethod_ProfilePage = view.findViewById<CardView>(R.id.paymentMethod_ProfilePage)
+//        val cardsNumber_profileFrag: TextView = view.findViewById(R.id.cardsNumber_profileFrag)
 
         cardViewModel = ViewModelProvider(this).get(CardViewModel::class.java)
 
@@ -90,13 +90,13 @@ class ProfileFragment : Fragment() {
             cards = it.size
         })
 
-        if(cards == 0){
-            cardsNumber_profileFrag.text = "You Have no Cards."
-        }
-        else{
-
-            cardsNumber_profileFrag.text = "You Have "+ cards.toString() + " Cards."
-        }
+//        if(cards == 0){
+//            cardsNumber_profileFrag.text = "You Have no Cards."
+//        }
+//        else{
+//
+//            cardsNumber_profileFrag.text = "You Have "+ cards.toString() + " Cards."
+//        }
 
 //        shippingAddressCard_ProfilePage.setOnClickListener {
 //            startActivity(Intent(context, ShipingAddressActivity::class.java))

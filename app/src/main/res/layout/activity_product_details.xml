@@ -137,7 +137,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/inter_regular"
-                    android:text="Product Details"
+                    android:text="Lead Details"
                     android:textColor="@color/mainText"
                     android:textSize="15sp" />
 
@@ -175,7 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
-                            android:text="Shipping info"
+                            android:text="Company info"
                             android:textColor="@color/mainText"
                             android:textSize="16sp" />
 
@@ -185,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/inter_regular"
-                            android:text="Add Your Cart"
+                            android:text="The details of this company is yet to be added."
                             android:textColor="@color/textAd"
                             android:textSize="12sp" />
 
@@ -230,11 +230,27 @@
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/backgroundAd"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <Button
+                            android:id="@+id/contactLead_LeadDetailsPage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="Contact Lead" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
