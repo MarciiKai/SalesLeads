@@ -80,7 +80,6 @@ class ProfileFragment : Fragment() {
         linearLayout2 = view.findViewById(R.id.linearLayout2)
         linearLayout3 = view.findViewById(R.id.linearLayout3)
         linearLayout4 = view.findViewById(R.id.linearLayout4)
-        val shippingAddressCard_ProfilePage = view.findViewById<CardView>(R.id.shippingAddressCard_ProfilePage)
 //        val paymentMethod_ProfilePage = view.findViewById<CardView>(R.id.paymentMethod_ProfilePage)
 //        val cardsNumber_profileFrag: TextView = view.findViewById(R.id.cardsNumber_profileFrag)
 
